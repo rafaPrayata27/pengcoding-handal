@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\IndController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('index',[SessionController::class,'index']);
+Route::post('index/home',[SessionController::class,'login']);
+Route::get('index/logout',[SessionController::class,'logout']);
+
+Route::resource('user', IndController::class);
